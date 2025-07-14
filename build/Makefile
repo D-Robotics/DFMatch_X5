@@ -129,6 +129,43 @@ test_dfmatch/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_dfmatch.dir/build.make CMakeFiles/test_dfmatch.dir/build
 .PHONY : test_dfmatch/fast
 
+#=============================================================================
+# Target rules for targets named test_cpu_bpu
+
+# Build rule for target.
+test_cpu_bpu: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_cpu_bpu
+.PHONY : test_cpu_bpu
+
+# fast build rule for target.
+test_cpu_bpu/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_cpu_bpu.dir/build.make CMakeFiles/test_cpu_bpu.dir/build
+.PHONY : test_cpu_bpu/fast
+
+test_cpu_bpu.o: test_cpu_bpu.cpp.o
+.PHONY : test_cpu_bpu.o
+
+# target to build an object file
+test_cpu_bpu.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_cpu_bpu.dir/build.make CMakeFiles/test_cpu_bpu.dir/test_cpu_bpu.cpp.o
+.PHONY : test_cpu_bpu.cpp.o
+
+test_cpu_bpu.i: test_cpu_bpu.cpp.i
+.PHONY : test_cpu_bpu.i
+
+# target to preprocess a source file
+test_cpu_bpu.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_cpu_bpu.dir/build.make CMakeFiles/test_cpu_bpu.dir/test_cpu_bpu.cpp.i
+.PHONY : test_cpu_bpu.cpp.i
+
+test_cpu_bpu.s: test_cpu_bpu.cpp.s
+.PHONY : test_cpu_bpu.s
+
+# target to generate assembly for a file
+test_cpu_bpu.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_cpu_bpu.dir/build.make CMakeFiles/test_cpu_bpu.dir/test_cpu_bpu.cpp.s
+.PHONY : test_cpu_bpu.cpp.s
+
 test_dfmatch.o: test_dfmatch.cpp.o
 .PHONY : test_dfmatch.o
 
@@ -161,7 +198,11 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... test_cpu_bpu"
 	@echo "... test_dfmatch"
+	@echo "... test_cpu_bpu.o"
+	@echo "... test_cpu_bpu.i"
+	@echo "... test_cpu_bpu.s"
 	@echo "... test_dfmatch.o"
 	@echo "... test_dfmatch.i"
 	@echo "... test_dfmatch.s"

@@ -29,9 +29,15 @@ link_directories(
 )
 
 
-add_executable(${PROJECT_NAME} test_dfmatch.cpp)
+add_executable(test_dfmatch test_dfmatch.cpp)
+add_executable(test_cpu_bpu test_cpu_bpu.cpp)
 
-target_link_libraries(${PROJECT_NAME}
+target_link_libraries(test_dfmatch
+    dnn cnn_intf hbmem hbrt_bayes_aarch64 alog
+    ${OpenCV_LIBS}
+)
+
+target_link_libraries(test_cpu_bpu
     dnn cnn_intf hbmem hbrt_bayes_aarch64 alog
     ${OpenCV_LIBS}
 )
