@@ -124,6 +124,5 @@ set(CMAKE_MAKEFILE_PRODUCTS
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
-  "CMakeFiles/test_dfmatch.dir/DependInfo.cmake"
-  "CMakeFiles/test_cpu_bpu.dir/DependInfo.cmake"
+  "CMakeFiles/dfmatch_infer.dir/DependInfo.cmake"
   )

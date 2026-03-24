@@ -1,2 +1,2 @@
-build/image_test
-build/image_vis
+build/*
+!build/*.tar.gz

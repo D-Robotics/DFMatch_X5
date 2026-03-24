@@ -117,78 +117,113 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named test_dfmatch
+# Target rules for targets named dfmatch_infer
 
 # Build rule for target.
-test_dfmatch: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_dfmatch
-.PHONY : test_dfmatch
+dfmatch_infer: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 dfmatch_infer
+.PHONY : dfmatch_infer
 
 # fast build rule for target.
-test_dfmatch/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_dfmatch.dir/build.make CMakeFiles/test_dfmatch.dir/build
-.PHONY : test_dfmatch/fast
+dfmatch_infer/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dfmatch_infer.dir/build.make CMakeFiles/dfmatch_infer.dir/build
+.PHONY : dfmatch_infer/fast
 
-#=============================================================================
-# Target rules for targets named test_cpu_bpu
-
-# Build rule for target.
-test_cpu_bpu: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_cpu_bpu
-.PHONY : test_cpu_bpu
-
-# fast build rule for target.
-test_cpu_bpu/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_cpu_bpu.dir/build.make CMakeFiles/test_cpu_bpu.dir/build
-.PHONY : test_cpu_bpu/fast
-
-test_cpu_bpu.o: test_cpu_bpu.cpp.o
-.PHONY : test_cpu_bpu.o
+main.o: main.cpp.o
+.PHONY : main.o
 
 # target to build an object file
-test_cpu_bpu.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_cpu_bpu.dir/build.make CMakeFiles/test_cpu_bpu.dir/test_cpu_bpu.cpp.o
-.PHONY : test_cpu_bpu.cpp.o
+main.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dfmatch_infer.dir/build.make CMakeFiles/dfmatch_infer.dir/main.cpp.o
+.PHONY : main.cpp.o
 
-test_cpu_bpu.i: test_cpu_bpu.cpp.i
-.PHONY : test_cpu_bpu.i
+main.i: main.cpp.i
+.PHONY : main.i
 
 # target to preprocess a source file
-test_cpu_bpu.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_cpu_bpu.dir/build.make CMakeFiles/test_cpu_bpu.dir/test_cpu_bpu.cpp.i
-.PHONY : test_cpu_bpu.cpp.i
+main.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dfmatch_infer.dir/build.make CMakeFiles/dfmatch_infer.dir/main.cpp.i
+.PHONY : main.cpp.i
 
-test_cpu_bpu.s: test_cpu_bpu.cpp.s
-.PHONY : test_cpu_bpu.s
+main.s: main.cpp.s
+.PHONY : main.s
 
 # target to generate assembly for a file
-test_cpu_bpu.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_cpu_bpu.dir/build.make CMakeFiles/test_cpu_bpu.dir/test_cpu_bpu.cpp.s
-.PHONY : test_cpu_bpu.cpp.s
+main.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dfmatch_infer.dir/build.make CMakeFiles/dfmatch_infer.dir/main.cpp.s
+.PHONY : main.cpp.s
 
-test_dfmatch.o: test_dfmatch.cpp.o
-.PHONY : test_dfmatch.o
+src/DFeatInfer.o: src/DFeatInfer.cpp.o
+.PHONY : src/DFeatInfer.o
 
 # target to build an object file
-test_dfmatch.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_dfmatch.dir/build.make CMakeFiles/test_dfmatch.dir/test_dfmatch.cpp.o
-.PHONY : test_dfmatch.cpp.o
+src/DFeatInfer.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dfmatch_infer.dir/build.make CMakeFiles/dfmatch_infer.dir/src/DFeatInfer.cpp.o
+.PHONY : src/DFeatInfer.cpp.o
 
-test_dfmatch.i: test_dfmatch.cpp.i
-.PHONY : test_dfmatch.i
+src/DFeatInfer.i: src/DFeatInfer.cpp.i
+.PHONY : src/DFeatInfer.i
 
 # target to preprocess a source file
-test_dfmatch.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_dfmatch.dir/build.make CMakeFiles/test_dfmatch.dir/test_dfmatch.cpp.i
-.PHONY : test_dfmatch.cpp.i
+src/DFeatInfer.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dfmatch_infer.dir/build.make CMakeFiles/dfmatch_infer.dir/src/DFeatInfer.cpp.i
+.PHONY : src/DFeatInfer.cpp.i
 
-test_dfmatch.s: test_dfmatch.cpp.s
-.PHONY : test_dfmatch.s
+src/DFeatInfer.s: src/DFeatInfer.cpp.s
+.PHONY : src/DFeatInfer.s
 
 # target to generate assembly for a file
-test_dfmatch.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_dfmatch.dir/build.make CMakeFiles/test_dfmatch.dir/test_dfmatch.cpp.s
-.PHONY : test_dfmatch.cpp.s
+src/DFeatInfer.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dfmatch_infer.dir/build.make CMakeFiles/dfmatch_infer.dir/src/DFeatInfer.cpp.s
+.PHONY : src/DFeatInfer.cpp.s
+
+src/LightGlueInfer.o: src/LightGlueInfer.cpp.o
+.PHONY : src/LightGlueInfer.o
+
+# target to build an object file
+src/LightGlueInfer.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dfmatch_infer.dir/build.make CMakeFiles/dfmatch_infer.dir/src/LightGlueInfer.cpp.o
+.PHONY : src/LightGlueInfer.cpp.o
+
+src/LightGlueInfer.i: src/LightGlueInfer.cpp.i
+.PHONY : src/LightGlueInfer.i
+
+# target to preprocess a source file
+src/LightGlueInfer.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dfmatch_infer.dir/build.make CMakeFiles/dfmatch_infer.dir/src/LightGlueInfer.cpp.i
+.PHONY : src/LightGlueInfer.cpp.i
+
+src/LightGlueInfer.s: src/LightGlueInfer.cpp.s
+.PHONY : src/LightGlueInfer.s
+
+# target to generate assembly for a file
+src/LightGlueInfer.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dfmatch_infer.dir/build.make CMakeFiles/dfmatch_infer.dir/src/LightGlueInfer.cpp.s
+.PHONY : src/LightGlueInfer.cpp.s
+
+src/timer_utils.o: src/timer_utils.cpp.o
+.PHONY : src/timer_utils.o
+
+# target to build an object file
+src/timer_utils.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dfmatch_infer.dir/build.make CMakeFiles/dfmatch_infer.dir/src/timer_utils.cpp.o
+.PHONY : src/timer_utils.cpp.o
+
+src/timer_utils.i: src/timer_utils.cpp.i
+.PHONY : src/timer_utils.i
+
+# target to preprocess a source file
+src/timer_utils.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dfmatch_infer.dir/build.make CMakeFiles/dfmatch_infer.dir/src/timer_utils.cpp.i
+.PHONY : src/timer_utils.cpp.i
+
+src/timer_utils.s: src/timer_utils.cpp.s
+.PHONY : src/timer_utils.s
+
+# target to generate assembly for a file
+src/timer_utils.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dfmatch_infer.dir/build.make CMakeFiles/dfmatch_infer.dir/src/timer_utils.cpp.s
+.PHONY : src/timer_utils.cpp.s
 
 # Help Target
 help:
@@ -198,14 +233,19 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... test_cpu_bpu"
-	@echo "... test_dfmatch"
-	@echo "... test_cpu_bpu.o"
-	@echo "... test_cpu_bpu.i"
-	@echo "... test_cpu_bpu.s"
-	@echo "... test_dfmatch.o"
-	@echo "... test_dfmatch.i"
-	@echo "... test_dfmatch.s"
+	@echo "... dfmatch_infer"
+	@echo "... main.o"
+	@echo "... main.i"
+	@echo "... main.s"
+	@echo "... src/DFeatInfer.o"
+	@echo "... src/DFeatInfer.i"
+	@echo "... src/DFeatInfer.s"
+	@echo "... src/LightGlueInfer.o"
+	@echo "... src/LightGlueInfer.i"
+	@echo "... src/LightGlueInfer.s"
+	@echo "... src/timer_utils.o"
+	@echo "... src/timer_utils.i"
+	@echo "... src/timer_utils.s"
 .PHONY : help
 
 

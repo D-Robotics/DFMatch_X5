@@ -63,8 +63,7 @@ CMAKE_BINARY_DIR = /root/dockershare/1_RosCode/work_humble_ws_x5/DFMatch_X5/buil
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
-all: CMakeFiles/test_dfmatch.dir/all
-all: CMakeFiles/test_cpu_bpu.dir/all
+all: CMakeFiles/dfmatch_infer.dir/all
 .PHONY : all
 
 # The main recursive "preinstall" target.
@@ -72,61 +71,34 @@ preinstall:
 .PHONY : preinstall
 
 # The main recursive "clean" target.
-clean: CMakeFiles/test_dfmatch.dir/clean
-clean: CMakeFiles/test_cpu_bpu.dir/clean
+clean: CMakeFiles/dfmatch_infer.dir/clean
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/test_dfmatch.dir
+# Target rules for target CMakeFiles/dfmatch_infer.dir
 
 # All Build rule for target.
-CMakeFiles/test_dfmatch.dir/all:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_dfmatch.dir/build.make CMakeFiles/test_dfmatch.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_dfmatch.dir/build.make CMakeFiles/test_dfmatch.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/root/dockershare/1_RosCode/work_humble_ws_x5/DFMatch_X5/build/CMakeFiles --progress-num=3,4 "Built target test_dfmatch"
-.PHONY : CMakeFiles/test_dfmatch.dir/all
+CMakeFiles/dfmatch_infer.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dfmatch_infer.dir/build.make CMakeFiles/dfmatch_infer.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dfmatch_infer.dir/build.make CMakeFiles/dfmatch_infer.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/root/dockershare/1_RosCode/work_humble_ws_x5/DFMatch_X5/build/CMakeFiles --progress-num=1,2,3,4,5 "Built target dfmatch_infer"
+.PHONY : CMakeFiles/dfmatch_infer.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/test_dfmatch.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /root/dockershare/1_RosCode/work_humble_ws_x5/DFMatch_X5/build/CMakeFiles 2
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/test_dfmatch.dir/all
+CMakeFiles/dfmatch_infer.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /root/dockershare/1_RosCode/work_humble_ws_x5/DFMatch_X5/build/CMakeFiles 5
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/dfmatch_infer.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /root/dockershare/1_RosCode/work_humble_ws_x5/DFMatch_X5/build/CMakeFiles 0
-.PHONY : CMakeFiles/test_dfmatch.dir/rule
+.PHONY : CMakeFiles/dfmatch_infer.dir/rule
 
 # Convenience name for target.
-test_dfmatch: CMakeFiles/test_dfmatch.dir/rule
-.PHONY : test_dfmatch
+dfmatch_infer: CMakeFiles/dfmatch_infer.dir/rule
+.PHONY : dfmatch_infer
 
 # clean rule for target.
-CMakeFiles/test_dfmatch.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_dfmatch.dir/build.make CMakeFiles/test_dfmatch.dir/clean
-.PHONY : CMakeFiles/test_dfmatch.dir/clean
-
-#=============================================================================
-# Target rules for target CMakeFiles/test_cpu_bpu.dir
-
-# All Build rule for target.
-CMakeFiles/test_cpu_bpu.dir/all:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_cpu_bpu.dir/build.make CMakeFiles/test_cpu_bpu.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_cpu_bpu.dir/build.make CMakeFiles/test_cpu_bpu.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/root/dockershare/1_RosCode/work_humble_ws_x5/DFMatch_X5/build/CMakeFiles --progress-num=1,2 "Built target test_cpu_bpu"
-.PHONY : CMakeFiles/test_cpu_bpu.dir/all
-
-# Build rule for subdir invocation for target.
-CMakeFiles/test_cpu_bpu.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /root/dockershare/1_RosCode/work_humble_ws_x5/DFMatch_X5/build/CMakeFiles 2
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/test_cpu_bpu.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /root/dockershare/1_RosCode/work_humble_ws_x5/DFMatch_X5/build/CMakeFiles 0
-.PHONY : CMakeFiles/test_cpu_bpu.dir/rule
-
-# Convenience name for target.
-test_cpu_bpu: CMakeFiles/test_cpu_bpu.dir/rule
-.PHONY : test_cpu_bpu
-
-# clean rule for target.
-CMakeFiles/test_cpu_bpu.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_cpu_bpu.dir/build.make CMakeFiles/test_cpu_bpu.dir/clean
-.PHONY : CMakeFiles/test_cpu_bpu.dir/clean
+CMakeFiles/dfmatch_infer.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dfmatch_infer.dir/build.make CMakeFiles/dfmatch_infer.dir/clean
+.PHONY : CMakeFiles/dfmatch_infer.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.
