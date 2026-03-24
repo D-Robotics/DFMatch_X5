@@ -11,8 +11,10 @@ mkdir build
 cd build
 cmake -DCMAKE_BUILD_TYPE=Release .. \
   -DPLATFORM_X5=ON \
-  -DCMAKE_C_COMPILER=/usr/bin/aarch64-linux-gnu-gcc \
-  -DCMAKE_CXX_COMPILER=/usr/bin/aarch64-linux-gnu-g++
+  -DCMAKE_C_COMPILER=/opt/arm-gnu-toolchain-11.3.rel1-x86_64-aarch64-none-linux-gnu/bin/aarch64-none-linux-gnu-gcc \
+  -DCMAKE_CXX_COMPILER=/opt/arm-gnu-toolchain-11.3.rel1-x86_64-aarch64-none-linux-gnu/bin/aarch64-none-linux-gnu-g++
+  # -DCMAKE_C_COMPILER=/usr/bin/aarch64-linux-gnu-gcc \
+  # -DCMAKE_CXX_COMPILER=/usr/bin/aarch64-linux-gnu-g++
 make -j$(nproc)
 
 echo "=> ================="

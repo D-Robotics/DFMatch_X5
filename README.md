@@ -1,9 +1,11 @@
 # DFeat + LightGlue X5 Infer Code
 
-# 模型介绍
+# 模型介绍（model文件夹）
 
 - dfeat_640_640.bin: DFeat特征点提取模型，输入640*640的图片，输出特征点和描述子
-- lg_v2.bin: LightGlue特征点匹配网络，输入特征点和描述子，输出匹配结果和对应的得分
+- dfeat.bin: DFeat特征点提取模型，输入640*480的图片，输出特征点和描述子
+- lg_v2.bin: LightGlue特征点匹配网络，输入特征点和描述子，输出匹配结果和对应的得分（描述子256维）
+- lg_dfeat_kp192.bin: LightGlue特征点匹配网络，输入特征点和描述子，输出匹配结果和对应的得分（描述子192维）
 
 # 编译
 
@@ -13,17 +15,18 @@
     ```bash
     tar -xvf arm-gnu-toolchain-11.3.rel1-x86_64-aarch64-none-linux-gnu.tar.xz
     ```
-- 修改CMakeLists.txt文件，将里面的改为解压的编译器绝对路径
+- 修改run_build.sh文件，将里面的改为解压的编译器绝对路径
 ```bash
-set(CMAKE_CXX_COMPILER /root/dockershare/1_RosCode/work_humble_ws_x5/compiler/arm-gnu-toolchain-11.3.rel1-x86_64-aarch64-none-linux-gnu/bin/aarch64-none-linux-gnu-g++)
+-DCMAKE_C_COMPILER=/opt/arm-gnu-toolchain-11.3.rel1-x86_64-aarch64-none-linux-gnu/bin/aarch64-none-linux-gnu-gcc \
+-DCMAKE_CXX_COMPILER=/opt/arm-gnu-toolchain-11.3.rel1-x86_64-aarch64-none-linux-gnu/bin/aarch64-none-linux-gnu-g++
 ```
-- 最后执行`bash run_build.sh`即可编译，可以在EVB X5板端编译，或者在PC端Ubuntu 22.04系统交叉编译，`run_build.sh`脚本均可运行
+- 最后执行`bash run_build.sh`即可编译，可以在EVB/RDK X5板端编译，或者在PC端Ubuntu 22.04系统交叉编译，`run_build.sh`脚本均可运行
 
 # X5芯片运行
 
-需要将build目录、3rdparty的lib_opencv4.5.4目录、make_ln.sh文件复制到EVB板端，例如将lib_opencv4.5.4目录复制到/userdata/lib_opencv4.5.4/
+需要将build目录生成的`DFMatch_X5.tar.gz`文件复制到`/userdata`（或者自定义目录）
 
-然后在/userdata/lib_opencv4.5.4/lib/目录执行
+然后在`/userdata/DFMatch`目录执行
 
 ```
 bash make_ln.sh
@@ -32,17 +35,14 @@ bash make_ln.sh
 最后运行程序
 
 ```bash
-cd build
+# 指定OpenCV目录
 export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/userdata/lib_opencv4.5.4/lib/
-./test_dfmatch
+# 参数1指定dfeat模型，参数2指定lg模型
+./dfmatch_infer ./model/dfeat_640_640.bin ./model/lg_v2.bin
+./dfmatch_infer ./model/dfeat.bin ./model/lg_dfeat_kp192.bin
 ```
 
 程序将读取build目录下的image_test文件夹的图像，将可视化结果保存在build目录下的image_vis文件夹中
-
-# 代码说明
-
-- test_dfmatch.cpp: 测试DFMatch效果
-- test_cpu_bpu.cpp: 测试CPU和BPU资源消耗
 
 # 可调参数
 
