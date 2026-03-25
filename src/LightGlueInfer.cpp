@@ -228,6 +228,61 @@ int LightGlueInfer::postprocess(const InferenceHandle &handle, std::vector<cv::P
   int ret_code = 0;
   // get shape info
   auto &outputs = batch_output_tensors_[handle];
+  if (outputs.size() == 3) {
+    ret_code = postprocess_v2(handle, keypoint_1, keypoint_2, match_kp_1, match_kp_2);
+  } else if (outputs.size() == 2) {
+    ret_code = postprocess_v1(handle, keypoint_1, keypoint_2, match_kp_1, match_kp_2);
+  } else {
+    LOG_ERROR(nullptr, "=> output tensor size is not equal to 2 or 3, size=" << outputs.size());
+    set_tensor_idle(handle);
+    return -1;
+  }
+  return ret_code;
+}
+
+int LightGlueInfer::postprocess_v1(const InferenceHandle &handle, std::vector<cv::Point2f> &keypoint_1,
+                                   std::vector<cv::Point2f> &keypoint_2, std::vector<cv::Point2f> &match_kp_1,
+                                   std::vector<cv::Point2f> &match_kp_2) {
+  int ret_code = 0;
+  // get shape info
+  auto &outputs = batch_output_tensors_[handle];
+  if (outputs.size() != 2) {
+    LOG_ERROR(logger_, "=> output tensor size is not equal to 2, size=" << outputs.size());
+    set_tensor_idle(handle);
+    return -1;
+  }
+
+  auto matches = outputs[0];
+  auto scores = outputs[1];
+  int *scores_shape = scores.properties.validShape.dimensionSize;
+  int scores_len = scores_shape[0] * scores_shape[1] * scores_shape[2] * scores_shape[3];
+  if (matches.properties.tensorType == HB_DNN_TENSOR_TYPE_S64 &&
+      scores.properties.tensorType == HB_DNN_TENSOR_TYPE_F32) {
+    auto matches_data = reinterpret_cast<int64_t *>(TENSOR_SYSMEM(matches, 0).virAddr);
+    auto scores_data = reinterpret_cast<float *>(TENSOR_SYSMEM(scores, 0).virAddr);
+
+    int nums_match = 0;
+    for (int i = 0; i < scores_len; i++) {
+      if (scores_data[i] > 0.08) {
+        nums_match++;
+        match_kp_1.push_back(keypoint_1[matches_data[i * 2]]);
+        match_kp_2.push_back(keypoint_2[matches_data[i * 2 + 1]]);
+      }
+    }
+    LOG_INFO(logger_, "=> nums match: " << nums_match);
+  }
+
+  // reset idle tensor
+  set_tensor_idle(handle);
+  return ret_code;
+}
+
+int LightGlueInfer::postprocess_v2(const InferenceHandle &handle, std::vector<cv::Point2f> &keypoint_1,
+                                   std::vector<cv::Point2f> &keypoint_2, std::vector<cv::Point2f> &match_kp_1,
+                                   std::vector<cv::Point2f> &match_kp_2) {
+  int ret_code = 0;
+  // get shape info
+  auto &outputs = batch_output_tensors_[handle];
   if (outputs.size() != 3) {
     LOG_ERROR(logger_, "=> output tensor size is not equal to 3, size=" << outputs.size());
     set_tensor_idle(handle);

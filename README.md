@@ -13,7 +13,7 @@
   - 下载地址：https://developer.arm.com/downloads/-/arm-gnu-toolchain-downloads
   - 本例使用的是arm-gnu-toolchain-11.3.rel1-x86_64-aarch64-none-linux-gnu.tar.xz，请下载对应版本并解压
     ```bash
-    tar -xvf arm-gnu-toolchain-11.3.rel1-x86_64-aarch64-none-linux-gnu.tar.xz
+    tar -xvf arm-gnu-toolchain-11.3.rel1-x86_64-aarch64-none-linux-gnu.tar.xz -C /opt
     ```
 - 修改run_build.sh文件，将里面的改为解压的编译器绝对路径
 ```bash
@@ -40,6 +40,7 @@ export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/userdata/lib_opencv4.5.4/lib/
 # 参数1指定dfeat模型，参数2指定lg模型
 ./dfmatch_infer ./model/dfeat_640_640.bin ./model/lg_v2.bin
 ./dfmatch_infer ./model/dfeat.bin ./model/lg_dfeat_kp192.bin
+./dfmatch_infer ./model/dfeat.bin ./model/lg_dfeat.bin
 ```
 
 程序将读取build目录下的image_test文件夹的图像，将可视化结果保存在build目录下的image_vis文件夹中

@@ -67,6 +67,12 @@ public:
   int postprocess(const InferenceHandle &handle, std::vector<cv::Point2f> &keypoint_1,
                   std::vector<cv::Point2f> &keypoint_2, std::vector<cv::Point2f> &match_kp_1,
                   std::vector<cv::Point2f> &match_kp_2);
+  int postprocess_v1(const InferenceHandle &handle, std::vector<cv::Point2f> &keypoint_1,
+                     std::vector<cv::Point2f> &keypoint_2, std::vector<cv::Point2f> &match_kp_1,
+                     std::vector<cv::Point2f> &match_kp_2);
+  int postprocess_v2(const InferenceHandle &handle, std::vector<cv::Point2f> &keypoint_1,
+                     std::vector<cv::Point2f> &keypoint_2, std::vector<cv::Point2f> &match_kp_1,
+                     std::vector<cv::Point2f> &match_kp_2);
 
   /**
    * @brief Perform forward inference using the LightGlue model
